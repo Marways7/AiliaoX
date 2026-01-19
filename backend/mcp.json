@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "mysql-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-mysql"
+      ],
+      "env": {
+        "MYSQL_HOST": "${MYSQL_HOST:-localhost}",
+        "MYSQL_PORT": "${MYSQL_PORT:-3306}",
+        "MYSQL_USER": "${MYSQL_USER:-root}",
+        "MYSQL_PASSWORD": "${MYSQL_PASSWORD}",
+        "MYSQL_DATABASE": "${MYSQL_DATABASE:-ailiaox}",
+        "CONNECTION_POOL_SIZE": "10",
+        "QUERY_TIMEOUT": "30000",
+        "ENABLE_NATURAL_LANGUAGE": "true",
+        "MAX_ROWS": "1000"
+      },
+      "timeout": 30000
+    },
+    "backup-mysql": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-mysql"
+      ],
+      "env": {
+        "MYSQL_HOST": "${BACKUP_MYSQL_HOST:-backup.mysql.server}",
+        "MYSQL_PORT": "${BACKUP_MYSQL_PORT:-3306}",
+        "MYSQL_USER": "${BACKUP_MYSQL_USER:-backup_user}",
+        "MYSQL_PASSWORD": "${BACKUP_MYSQL_PASSWORD}",
+        "MYSQL_DATABASE": "${BACKUP_MYSQL_DATABASE:-ailiaox_backup}",
+        "CONNECTION_POOL_SIZE": "5",
+        "QUERY_TIMEOUT": "30000"
+      },
+      "timeout": 30000
+    }
+  },
+  "defaultServer": "mysql-mcp",
+  "connectionRetry": {
+    "maxRetries": 3,
+    "retryDelay": 1000,
+    "backoffMultiplier": 2
+  },
+  "logging": {
+    "level": "info",
+    "format": "json"
+  }
+}

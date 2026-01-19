@@ -1,0 +1,459 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 全局基础样式 ===== */
+@layer base {
+  * {
+    @apply border-border-subtle;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background-primary text-text-primary font-sans antialiased;
+    @apply min-h-screen;
+  }
+
+  /* 滚动条样式 - 未来感 */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background-secondary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-500/30 rounded-full hover:bg-primary-500/50 transition-colors;
+  }
+
+  /* 选中文本样式 */
+  ::selection {
+    @apply bg-primary-500/30 text-text-primary;
+  }
+
+  /* 标题样式 */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-text-primary;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg lg:text-xl;
+  }
+
+  h6 {
+    @apply text-base lg:text-lg;
+  }
+
+  /* 链接样式 */
+  a {
+    @apply text-primary-500 hover:text-primary-400 transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary;
+    @apply rounded;
+  }
+
+  /* 按钮基础样式 */
+  button {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-primary;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply transition-all duration-300;
+  }
+
+  /* 输入框基础样式 */
+  input,
+  textarea,
+  select {
+    @apply bg-background-secondary border-border-primary text-text-primary;
+    @apply focus:border-primary-500 focus:ring-primary-500;
+    @apply placeholder:text-text-tertiary;
+    @apply transition-all duration-300;
+  }
+
+  /* 代码块样式 */
+  code {
+    @apply font-mono text-sm bg-background-secondary px-1.5 py-0.5 rounded;
+    @apply text-accent-500;
+  }
+
+  pre {
+    @apply font-mono text-sm bg-background-secondary p-4 rounded-lg overflow-x-auto;
+    @apply border border-border-primary;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+}
+
+/* ===== 组件样式 ===== */
+@layer components {
+  /* 卡片样式 - 未来感 */
+  .card {
+    @apply relative rounded-xl border border-border-primary;
+    @apply bg-gradient-to-br from-background-secondary to-background-tertiary;
+    @apply backdrop-blur-sm;
+    @apply transition-all duration-500;
+    @apply before:absolute before:inset-0 before:rounded-xl;
+    @apply before:bg-gradient-to-r before:from-primary-500/20 before:to-accent-500/20;
+    @apply before:opacity-0 hover:before:opacity-100;
+    @apply before:transition-opacity before:duration-500;
+  }
+
+  .card-hover-blue {
+    @apply hover:shadow-neon-blue;
+  }
+
+  .card-hover-purple {
+    @apply hover:shadow-neon-purple;
+  }
+
+  .card-hover-cyan {
+    @apply hover:shadow-neon-cyan;
+  }
+
+  /* 霓虹按钮 */
+  .btn-neon {
+    @apply relative overflow-hidden rounded-lg font-semibold;
+    @apply bg-gradient-to-r from-primary-600 to-primary-500;
+    @apply text-white shadow-neon-blue;
+    @apply hover:shadow-neon-blue-strong hover:scale-105;
+    @apply active:scale-95;
+    @apply transition-all duration-300;
+    @apply before:absolute before:inset-0;
+    @apply before:bg-gradient-to-r before:from-primary-400 before:to-accent-400;
+    @apply before:opacity-0 hover:before:opacity-100;
+    @apply before:transition-opacity before:duration-300;
+  }
+
+  .btn-neon > span {
+    @apply relative z-10;
+  }
+
+  /* 霓虹边框 */
+  .neon-border-blue {
+    @apply border border-primary-500/50;
+    @apply shadow-neon-blue;
+  }
+
+  .neon-border-purple {
+    @apply border border-secondary-500/50;
+    @apply shadow-neon-purple;
+  }
+
+  .neon-border-cyan {
+    @apply border border-accent-500/50;
+    @apply shadow-neon-cyan;
+  }
+
+  /* 玻璃态效果 */
+  .glass {
+    @apply bg-background-secondary/30;
+    @apply backdrop-blur-md;
+    @apply border border-border-subtle;
+  }
+
+  .glass-strong {
+    @apply bg-background-secondary/50;
+    @apply backdrop-blur-lg;
+    @apply border border-border-primary;
+  }
+
+  /* 渐变文本 */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500;
+    @apply bg-clip-text text-transparent;
+  }
+
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-primary-400 to-accent-400;
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* 页面容器 */
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-full {
+    @apply w-full px-4 sm:px-6 lg:px-8;
+  }
+
+  /* 分割线 */
+  .divider {
+    @apply border-t border-border-subtle;
+  }
+
+  .divider-neon {
+    @apply border-t border-primary-500/30;
+    @apply shadow-neon-blue;
+  }
+
+  /* 徽章 */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-500/20 text-primary-400 border border-primary-500/30;
+  }
+
+  .badge-success {
+    @apply bg-success-500/20 text-success-400 border border-success-500/30;
+  }
+
+  .badge-warning {
+    @apply bg-warning-500/20 text-warning-400 border border-warning-500/30;
+  }
+
+  .badge-error {
+    @apply bg-error-500/20 text-error-400 border border-error-500/30;
+  }
+
+  /* 加载动画 */
+  .loading-spinner {
+    @apply inline-block w-6 h-6 border-2 border-primary-500;
+    @apply border-t-transparent rounded-full;
+    @apply animate-spin;
+  }
+
+  .loading-dots::after {
+    content: '';
+    @apply inline-block w-1 h-1 rounded-full bg-current;
+    @apply animate-bounce;
+    animation-delay: 0s;
+  }
+
+  /* 表格样式 */
+  .table-container {
+    @apply w-full overflow-x-auto;
+  }
+
+  .table-neon {
+    @apply w-full;
+    @apply border-collapse;
+  }
+
+  .table-neon thead {
+    @apply bg-background-tertiary;
+    @apply border-b border-border-primary;
+  }
+
+  .table-neon th {
+    @apply px-6 py-3 text-left text-xs font-medium;
+    @apply text-text-secondary uppercase tracking-wider;
+  }
+
+  .table-neon td {
+    @apply px-6 py-4;
+    @apply border-b border-border-subtle;
+    @apply text-sm text-text-primary;
+  }
+
+  .table-neon tbody tr {
+    @apply hover:bg-background-secondary/50 transition-colors;
+  }
+
+  /* 通知/Toast样式 */
+  .toast {
+    @apply rounded-lg p-4 shadow-lg;
+    @apply border border-border-primary;
+    @apply backdrop-blur-sm;
+  }
+
+  .toast-success {
+    @apply bg-success-500/20 border-success-500/50;
+    @apply text-success-400;
+  }
+
+  .toast-error {
+    @apply bg-error-500/20 border-error-500/50;
+    @apply text-error-400;
+  }
+
+  .toast-warning {
+    @apply bg-warning-500/20 border-warning-500/50;
+    @apply text-warning-400;
+  }
+
+  .toast-info {
+    @apply bg-primary-500/20 border-primary-500/50;
+    @apply text-primary-400;
+  }
+}
+
+/* ===== 工具类 ===== */
+@layer utilities {
+  /* 文本省略 */
+  .text-ellipsis-1 {
+    @apply line-clamp-1;
+  }
+
+  .text-ellipsis-2 {
+    @apply line-clamp-2;
+  }
+
+  .text-ellipsis-3 {
+    @apply line-clamp-3;
+  }
+
+  /* 隐藏滚动条 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 渐变背景 */
+  .bg-neon-gradient {
+    background: linear-gradient(135deg, #1890FF 0%, #722ED1 50%, #13C2C2 100%);
+  }
+
+  .bg-dark-gradient {
+    background: linear-gradient(180deg, #0A0E27 0%, #151932 100%);
+  }
+
+  /* 动画延迟 */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* 霓虹文本 */
+  .text-neon-blue {
+    @apply text-primary-400;
+    text-shadow: 0 0 10px rgba(64, 169, 255, 0.5);
+  }
+
+  .text-neon-purple {
+    @apply text-secondary-400;
+    text-shadow: 0 0 10px rgba(114, 46, 209, 0.5);
+  }
+
+  .text-neon-cyan {
+    @apply text-accent-400;
+    text-shadow: 0 0 10px rgba(19, 194, 194, 0.5);
+  }
+
+  /* 安全区域 */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* ===== 响应式工具 ===== */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+}
+
+@media (min-width: 641px) {
+  .mobile-only {
+    @apply hidden;
+  }
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+
+  .no-print {
+    @apply hidden;
+  }
+}
+
+/* ===== 可访问性 ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== 自定义动画 ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(64, 169, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 1000px 100%;
+}
