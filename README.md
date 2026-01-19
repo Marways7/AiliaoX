@@ -74,7 +74,7 @@ AiliaoX是一个革命性的AI驱动医院信息系统（HIS），通过**Model 
 #### 1. 克隆项目
 
 ```bash
-git clone https://github.com/marways7/ailiaox.git
+git clone https://github.com/Marways7/AiliaoX.git
 cd ailiaox
 ```
 
