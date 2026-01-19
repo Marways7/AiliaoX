@@ -188,6 +188,10 @@ ailiaox/
 
 ---
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Marways7/AiliaoX&type=date&legend=top-left)](https://www.star-history.com/#Marways7/AiliaoX&type=date&legend=top-left)
+
 <div align="center">
 
 **⭐ 如果这个项目对你有帮助，请给我们一个Star！⭐**
